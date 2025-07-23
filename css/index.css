@@ -41,10 +41,6 @@
 	box-sizing: border-box;
 }
 
-@view-transition {
-	navigation: auto;
-}
-
 html,
 body {
 	padding: 0;
@@ -55,9 +51,6 @@ body {
 }
 html {
 	overflow-y: scroll;
-}
-body {
-	max-width: 40em;
 }
 
 /* https://www.a11yproject.com/posts/how-to-hide-content/ */
@@ -70,6 +63,11 @@ body {
 	white-space: nowrap;
 	width: 1px;
 }
+.home-title {
+	text-align: center;
+	padding-top: 0.5em;
+	padding-bottom: 0.4em;
+  }
 
 /* Fluid images via https://www.zachleat.com/web/fluid-images/ */
 img{
@@ -77,11 +75,6 @@ img{
 }
 img[width][height] {
   height: auto;
-}
-img[src$=".svg"] {
-  width: 100%;
-  height: auto;
-  max-width: none;
 }
 video,
 iframe {
@@ -114,16 +107,44 @@ a[href]:active {
 	color: var(--text-color-link-active);
 }
 
-main,
+main {
+	/* top | left and right | bottom */
+	padding: 2.5em 1rem 1rem;
+  }
+  
 footer {
 	padding: 1rem;
+	text-align: center;
 }
+
 main :first-child {
 	margin-top: 0;
 }
 
 header {
-	border-bottom: 1px dashed var(--color-gray-20);
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* This creates the three-column layout */
+    padding: 1em;
+    gap: 1em;
+    border-bottom: 1px dashed var(--color-gray-20);
+}
+
+.button-subscribe-nav {
+    padding: 0.5em 1em;
+    border: 1px solid var(--text-color); /* Black/White border */
+    border-radius: 5px;
+    background-color: var(--background-color); /* White/Black background */
+    color: var(--text-color); /* Black/White text */
+    font-size: 1em;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.button-subscribe-nav:hover {
+    background-color: #000; /* Inverted background */
+    color: #fff; /* Inverted text color */
 }
 
 #skip-link {
@@ -166,7 +187,9 @@ table td,
 table th {
 	padding-right: 1em;
 }
-
+body{
+	max-width: 1000px;
+}
 pre,
 code {
 	font-family: var(--font-family-monospace);
@@ -190,33 +213,40 @@ pre:not([class*="language-"]) {
 code {
 	word-break: break-all;
 }
-
 /* Header */
 header {
-	display: flex;
-	gap: 1em;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1em;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1em;
+    gap: 1em;
+}
+.header-logo {
+    height: 40px;
+    width: 40px;
+    flex-shrink: 0;
 }
 .home-link {
-	flex-grow: 1;
-	font-size: 1em; /* 16px /16 */
-	font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15em;
+    font-size: 1.8em;
+    font-weight: 700;
+    text-decoration: none;
 }
+
 .home-link:link:not(:hover) {
 	text-decoration: none;
 }
-
-/* Nav */
 .nav {
-	display: flex;
-	gap: .5em 1em;
-	padding: 0;
-	margin: 0;
-	list-style: none;
+    display: flex;
+    gap: .5em 1em;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: 1.25em;
 }
+
 .nav-item {
 	display: inline-block;
 }
@@ -227,28 +257,35 @@ header {
 	text-decoration: underline;
 }
 
+.intro-section {
+	text-align: center; /* Center all text inside this section */
+	margin: 3em;  /* Add space above and below the intro */
+  }
+  
+  .intro-heading {
+	font-size: 2.25em;  /* Make the heading significantly larger */
+	font-weight: 700;
+	margin-bottom: 0.5em; /* Add a little space below the heading */
+  }
+  
+  .intro-text {
+	font-size: 1.2em;   /* Make the paragraph text slightly larger */
+	color: #555;       /* Use a slightly softer text color */
+	max-width: 60ch;    /* Limit line length for better readability */
+	margin-left: auto;  /* Center the paragraph block */
+	margin-right: auto;
+  }
+  
 /* Posts list */
 .postlist {
-	counter-reset: start-from var(--postlist-index);
-	list-style: none;
-	padding: 0;
-	padding-left: 1.5rem;
+    list-style: none;
+    padding: 0;
 }
+
 .postlist-item {
-	display: flex;
-	flex-wrap: wrap;
-	align-items: baseline;
-	counter-increment: start-from -1;
-	margin-bottom: 1em;
+    margin-bottom: 1.5rem; /* Add a bit more space between items */
 }
-.postlist-item:before {
-	display: inline-block;
-	pointer-events: none;
-	content: "" counter(start-from, decimal-leading-zero) ". ";
-	line-height: 100%;
-	text-align: right;
-	margin-left: -1.5rem;
-}
+
 .postlist-date,
 .postlist-item:before {
 	font-size: 0.8125em; /* 13px /16 */
@@ -258,19 +295,35 @@ header {
 	word-spacing: -0.5px;
 }
 .postlist-link {
-	font-size: 1.1875em; /* 19px /16 */
-	font-weight: 700;
-	flex-basis: calc(100% - 1.5rem);
-	padding-left: .25em;
-	padding-right: .5em;
-	text-underline-position: from-font;
-	text-underline-offset: 0;
-	text-decoration-thickness: 1px;
+    display: flex; /* Changed from 'block' */
+    justify-content: space-between; /* Pushes title and date to opposite ends */
+    align-items: center; /* Vertically aligns them in the middle */
+    padding: 1em 1.5em;
+    font-size: 1.2em;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: var(--text-color);
+    text-decoration: none;
+    border: 1px solid var(--color-gray-20);
+    border-radius: 8px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.postlist-link:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-3px);
+}
+.postlist-title {
+    font-weight: 700;
+}
+.postlist-date {
+    font-size: 0.8em;
+    color: var(--color-gray-200);
 }
 .postlist-item-active .postlist-link {
 	font-weight: bold;
 }
-
 /* Tags */
 .post-tag {
 	display: inline-flex;
@@ -296,3 +349,71 @@ header {
 	margin-right: 1em;
 }
 
+.archive-prompt {
+	text-align: center;
+  }
+
+  .subscribe-section {
+    background-color: #f8f9fa; /* A light background color */
+    border: 1px solid var(--color-gray-20);
+    border-radius: 8px;
+    text-align: center;
+    padding: 2.5em 2em;
+    margin: 3.5em auto; /* Adds space above/below and centers the block */
+    max-width: 80%;
+}
+
+.subscribe-heading {
+    font-size: 1.8em;
+    font-weight: 700;
+    margin-top: 0;
+}
+
+.subscribe-text {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 1.5em;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.subscribe-input {
+    padding: 0.8em;
+    border: 1px solid var(--color-gray-50);
+    border-radius: 5px;
+    font-size: 1em;
+    width: 250px; /* Adjust width as needed */
+}
+
+.subscribe-button {
+    padding: 0.8em 1.5em;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--text-color-link);
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.subscribe-button:hover {
+    background-color: var(--text-color-link-active);
+}
+
+@media (max-width: 768px) {
+	header {
+	  flex-direction: column; /* Stack items vertically */
+	  justify-content: center; /* Center them when stacked */
+	  gap: 1.5em;
+	}
+  
+	.nav {
+	  flex-wrap: wrap; /* Allows nav items to wrap onto a new line */
+	  justify-content: center; /* Ensures the wrapped links stay centered */
+	}
+  }

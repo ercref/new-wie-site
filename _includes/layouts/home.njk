@@ -1,16 +1,28 @@
 ---
 layout: layouts/base.njk
 ---
-<!-- Delete this block, which will also remove the component CSS from the bundle -->
-<style>{% include "css/message-box.css" %}</style>
-<div class="message-box">
-	<ol>
-		<li>Edit <code>_data/metadata.js</code> with your blog’s information.</li>
-		<li>(Optional) Edit <code>eleventy.config.js</code> with your <a href="https://www.11ty.dev/docs/config/">configuration preferences</a>.</li>
-		<li>Delete this message from <code>_includes/layouts/home.njk</code>.</li>
-	</ol>
-	<p><em>This is an <a href="https://www.11ty.dev/">Eleventy project</a> created from the <a href="https://github.com/11ty/eleventy-base-blog"><code>eleventy-base-blog</code> repo</a>.</em></p>
-</div>
-<!-- Stop deleting -->
+{# Only include the syntax highlighter CSS on blog posts, included with the CSS per-page bundle #}
+<style>{% include "node_modules/prismjs/themes/prism-okaidia.css" %}</style>
+<style>{% include "css/prism-diff.css" %}</style>
+<h1>{{ title }}</h1>
+
+<ul class="post-metadata">
+	<li><time datetime="{{ page.date | htmlDateString }}">{{ page.date | readableDate }}</time></li>
+	{%- for tag in tags | filterTagList %}
+	{%- set tagUrl %}/tags/{{ tag | slugify }}/{% endset %}
+	<li><a href="{{ tagUrl }}" class="post-tag">{{ tag }}</a>{%- if not loop.last %}, {% endif %}</li>
+	{%- endfor %}
+</ul>
 
 {{ content | safe }}
+
+{%- if collections.posts %}
+{%- set previousPost = collections.posts | getPreviousCollectionItem %}
+{%- set nextPost = collections.posts | getNextCollectionItem %}
+{%- if nextPost or previousPost %}
+<ul class="links-nextprev">
+	{%- if previousPost %}<li class="links-nextprev-prev">← Previous<br> <a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>{% endif %}
+	{%- if nextPost %}<li class="links-nextprev-next">Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>{% endif %}
+</ul>
+{%- endif %}
+{%- endif %}
