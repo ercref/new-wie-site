@@ -6,9 +6,16 @@ const eleventyNavigation = {
 
 const numberOfLatestPostsToShow = 3;
 ---
+<div class="intro-section">
+  <h2 class="intro-heading">Welcome to New Week in Ethereum Newsletter!</h2>
+  <p class="intro-text">This is a weekly newsletter covering the latest developments in the Ethereum ecosystem, exploring everything from DeFi trends to Layer 2 scaling solutions.</p>
+</div>
+
+<hr>
+
 {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
+<h1 class="home-title">Check Out the Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
 
 {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
 {% set postslistCounter = postsCount %}
@@ -16,8 +23,17 @@ const numberOfLatestPostsToShow = 3;
 
 {% set morePosts = postsCount - numberOfLatestPostsToShow %}
 {% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
+<p class="archive-prompt">{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="/blog/">the archive</a>.</p>
 {% endif %}
+
+<div class="subscribe-section">
+  <h2 class="subscribe-heading">Subscribe to the Newsletter</h2>
+  <p class="subscribe-text">Get the latest posts delivered right to your inbox. No spam, just weekly insights.</p>
+  <form action="https://buttondown.com/api/emails/embed-subscribe/angelaxli" target="_blank" method="post" class="subscribe-form">
+    <input type="email" name="email" class="subscribe-input" placeholder="your.email@example.com">
+    <button type="submit" class="subscribe-button">Subscribe</button>
+  </form>
+</div>
 
 {# List every content page in the project #}
 {#

@@ -1,5 +1,5 @@
 export default {
-	title: "WIE",
+	title: "New Week in Ethereum News",
 	url: "https://example.com/",
 	language: "en",
 	description: "Providing weekly updates on the world of Ethereum",

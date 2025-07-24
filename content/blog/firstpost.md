@@ -1,9 +1,9 @@
 ---
-title: Week in Ethereum News
-description: This is a post on My Blog about agile frameworks.
+title: New Week In Ethereum 7/11/25
+description: Week in Ethereum Issue 1
 date: 2025-07-11
 ---
-* The [All Core Devs - Consensus (ACDC) #160 call](https://github.com/ethereum/pm/issues/1598) on July 10 focused on Fusaka upgrade progress, with discussions on the launch of fusaka-devnet-3 and preparations for the Glamsterdam upgrade. Key decisions included finalizing BPO (Blob Parameter Override) strategies and selecting a CL headliner for Glamsterdam.
+The [All Core Devs - Consensus (ACDC) #160 call](https://github.com/ethereum/pm/issues/1598) on July 10 focused on Fusaka upgrade progress, with discussions on the launch of fusaka-devnet-3 and preparations for the Glamsterdam upgrade. Key decisions included finalizing BPO (Blob Parameter Override) strategies and selecting a CL headliner for Glamsterdam.
 
 ## Eth R&D Protocol Call(s)
 

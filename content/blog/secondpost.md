@@ -1,0 +1,160 @@
+---
+title: New Week In Ethereum 7/18/25
+description: Week in Ethereum Issue 2
+date: 2025-07-18
+---
+
+The Ethereum community is preparing for the upcoming Fusaka upgrade, with a tight timeline targeting mainnet deployment in early November 2025 (before [Devconnect](https://devconnect.org/)). 
+
+## Eth R&D Protocol Call(s)
+
+* [All Core Devs - Execution (ACDE) #216 (July 17, 2025)](https://ethereum-magicians.org/t/allcoredevs-execution-acde-216-july-17-2025/24770/2):
+  * Fusaka upgrade:
+    * Devnet-2 is running stable with minor issues mainly from Consensus Layer clients.
+    * Decision to remove [EIP-7907](https://github.com/ethereum/EIPs/pull/10026) (increase contract code size) from Fusaka due to complexity and timeline risks.
+    * Client teams agreed to launch [devnet-3](https://notes.ethereum.org/@ethpandaops/fusaka-devnet-3) by July 23.
+    * Timeline discussion for Fusaka targeting mainnet in early November (before Devconnect), with concerns about sufficient testnet stability and audit time.
+  * Glamsterdam upgrade planning:
+    * Execution Layer client teams favor [Block-Level Access Lists](https://ethereum-magicians.org/t/block-level-access-lists/21195) paired with gas repricing.
+    * Consensus Layer teams strongly favor [ePBS](https://ethereum-magicians.org/t/eip-7732-the-case-for-inclusion-in-glamsterdam/24306).
+    * FOCIL is popular but potentially conflicts with ePBS in implementation complexity.
+    * Teams agreed to finalize headliners by August 21, with continued discussions in upcoming calls.
+
+## Fusaka upgrade
+
+* [EIP-7907](https://eips.ethereum.org/EIPS/eip-7907) (increase contract code size) was [removed from Fusaka](https://github.com/ethereum/EIPs/pull/10026) during the ACDE #216 call due to significant unresolved complexity and timeline risks.
+* [Fusaka-devnet-3](https://notes.ethereum.org/@ethpandaops/fusaka-devnet-3) is scheduled to launch by July 23, with client teams reporting stable progress on devnet-2 despite minor issues.
+* The upgrade is targeting a tight timeline for mainnet deployment in early November 2025 (before [Devconnect](https://devconnect.org/)), requiring client releases by late August.
+
+## Glamsterdam Upgrade
+
+* Client teams are actively discussing potential headliners for the Glamsterdam upgrade, with preferences documented at [forkcast.org](https://forkcast.org/upgrade/glamsterdam#client-team-perspectives).
+* Execution layer client teams favor [Block-Level Access Lists](https://forkcast.org/upgrade/glamsterdam#eip-7928) (BALs) with significant gas repricing to achieve meaningful scaling improvements.
+* Consensus layer client teams strongly favor [ePBS](https://forkcast.org/upgrade/glamsterdam#eip-7732), with wide but not unanimous support.
+* [FOCIL](https://forkcast.org/upgrade/glamsterdam#eip-7805) is popular but seen as potentially conflicting with ePBS in terms of implementation complexity and scope.
+* Teams agreed to finalize headliners by August 21, with continued discussions in upcoming ACDE calls (July 31 & August 14).
+
+## Layer 1
+
+* A new research post titled ["The Glamsterdam equation"](https://ethresear.ch/t/the-glamsterdam-equation/22760) was published, exploring scaling approaches for the upcoming Glamsterdam upgrade.
+* ["A practical proposal for Multidimensional Gas Metering"](https://ethresear.ch/t/a-practical-proposal-for-multidimensional-gas-metering/22668) was published, suggesting improvements to how gas is metered in the EVM to better reflect actual resource usage.
+* ["Revisiting Secure DAS in One and Two Dimensions"](https://ethresear.ch/t/revisiting-secure-das-in-one-and-two-dimensions/22762) was shared, exploring improvements to data availability sampling techniques that will be critical for Ethereum's scaling roadmap.
+* ["Block Constraints Sharing: Multi-Relay Inclusion Lists & beyond"](https://ethresear.ch/t/block-constraints-sharing-multi-relay-inclusion-lists-beyond/22752) was published, proposing mechanisms to improve censorship resistance in block building.
+
+## Research
+
+* **Multidimensional Gas Metering:**
+  * ["A practical proposal for Multidimensional Gas Metering"](https://ethresear.ch/t/a-practical-proposal-for-multidimensional-gas-metering/22668) was published, building on previous research to propose practical implementations for more accurate resource pricing in the EVM.
+  * This follows the earlier research ["Going multidimensional - an empirical analysis on gas metering in the EVM"](https://ethresear.ch/t/going-multidimensional-an-empirical-analysis-on-gas-metering-in-the-evm/22621) which provided empirical data on EVM resource usage.
+
+* **Data Availability Sampling:**
+  * ["Revisiting Secure DAS in One and Two Dimensions"](https://ethresear.ch/t/revisiting-secure-das-in-one-and-two-dimensions/22762) was published, exploring improvements to data availability sampling techniques that will be critical for Ethereum's scaling roadmap.
+
+* **Rollups and Layer 2:**
+  * ["Preemptive Provable Assertions"](https://ethresear.ch/t/preemptive-provable-assertions/22757) was shared, proposing a new approach to rollup sequencing.
+  * Discussion continued on ["Native rollups—superpowers from L1 execution"](https://ethresear.ch/t/native-rollups-superpowers-from-l1-execution/21517), exploring how L1 execution capabilities could enhance rollup performance.
+
+* **Cryptography and Privacy:**
+  * ["BITE Protocol: On-Chain Decryption via Precompiled Contracts"](https://ethresear.ch/t/bite-protocol-on-chain-decryption-via-precompiled-contracts/22210) was discussed, proposing mechanisms for on-chain decryption operations.
+
+## Layer 2
+
+* [Arbitrum One TVL reaches $17.47B](https://l2beat.com/scaling/projects/arbitrum), growing 12.2% over the past year as the leading Layer 2 solution continues to attract users and developers.
+
+* [Base surpasses 124 UOPS](https://l2beat.com/scaling/projects/base) (user operations per second), showing a 15% increase in activity over the past week, cementing its position as the most active Layer 2 network.
+
+* [Starknet activity jumps 34.8%](https://l2beat.com/scaling/projects/starknet) in the past week, as the ZK rollup continues to gain traction with developers building on its Cairo programming language.
+
+* [Paradex sees 79.1% activity growth](https://l2beat.com/scaling/projects/paradex) in the past week, making it one of the fastest-growing Layer 2 platforms for decentralized derivatives trading.
+
+## Stuff for Developers
+
+* [Realtime Proving for L1 zkEVM announced](https://blog.ethereum.org/2025/07/10/realtime-proving) by the Ethereum Foundation, marking the first step toward migrating to ZK proofs at all levels of the stack, from consensus layer signature aggregation to onchain privacy.
+
+* [Partial history expiry now supported](https://blog.ethereum.org/2025/07/08/partial-history-exp) by all Ethereum execution clients in accordance with EIP-4444, reducing disk space requirements by 300-500 GB by removing block data prior to the Merge.
+
+* [EIP-7907 updated](https://github.com/ethereum/EIPs/pull/10007) to consider empty code as always warm, improving gas efficiency for contract interactions.
+
+* [EIP-7910 updated](https://github.com/ethereum/EIPs/pull/10029) to change BN256 to BN254, reflecting the more accurate naming convention for the curve used in cryptographic operations.
+
+## Ecosystem
+
+* [The Future of Ecosystem Development at the EF](https://blog.ethereum.org/2025/07/10/future-of-ecodev) outlined by the Ethereum Foundation, focusing on maximizing Ethereum adoption while preserving its underlying values and resilience.
+
+* [Ethereum Season of Internships launched](https://blog.ethereum.org/2025/06/12/season-of-internships), offering over 30 paid, fully-remote summer internships across 19 teams in the Ethereum ecosystem to help establish more paths for the next generation of contributors.
+
+* [Ethereum World's Fair tickets now available](https://blog.ethereum.org/2025/06/10/devconnect-arg-ticket) for the event in Buenos Aires, November 17-22, 2025, showcasing how Ethereum can bring a nation onchain with stablecoins, DeFi, decentralized identity, and more.
+
+* [Devconnect Scholars Program announced](https://blog.ethereum.org/2025/06/03/devconnect-arg-scholars) to welcome 100 leaders expanding Ethereum's reach by connecting it to new communities, industries, and ideas at Devconnect ARG 2025.
+
+## Centralization watch: threatening the value of your ETH
+
+* 🚨 [Lido at 25.84%](https://dune.com/hildobby/eth2-staking), still too close to the [33.3% threshold](https://notes.ethereum.org/@djrtwo/risks-of-lsd).
+* Client diversity (via clientdiversity.org):
+  * Execution layer: Geth ~41% & Nethermind ~38%
+  * Consensus layer: Lighthouse 42.71% & Prysm 30.91%
+  * Any client bug over 33.3% could mean loss of finality.
+* Better [geographic diversity](https://nodewatch.io/) is optimal, particularly outside of North America & Europe.
+
+## Client Releases
+
+* Consensus layer:
+  * [Lighthouse v7.1.0](https://github.com/sigp/lighthouse/releases/tag/v7.1.0): hierarchical state diffs for hot state (4x less disk I/O, 10x less data during non-finality), optimized processing of Electra SingleAttestation messages, default gas limit of 45M, and light client updates broadcasting improvements.
+
+* Execution layer:
+  * [Geth v1.16.1](https://github.com/ethereum/go-ethereum/releases/tag/v1.16.1): fixes for abigen v2, live tracer, blockTimestamp hex encoding in eth_getLogs, eth_getLogs address limit, eth_getTransactionReceipt performance, and snap sync with archive node.
+  * [Nethermind v1.32.2](https://github.com/NethermindEth/nethermind/releases/tag/1.32.2): addresses Linux and CPU compatibility issues from previous releases.
+
+## EIPs/Standards
+
+* EIPs (Core, Networking, Interface):
+  * [EIP-7819](https://github.com/ethereum/EIPs/commit/4d2a00692bb131366ede1a16eced2b0e25b1bf99): Updated with location to accessed_addresses.
+  * [EIP-7928](https://github.com/ethereum/EIPs/commit/076df39b70162d37c8cb0f5962ec068e393144a6): Added statically inferrable nonce changes back.
+  * [EIP-7607](https://github.com/ethereum/EIPs/commit/7a20cd0f63182ce51583333ed48b40593daed742): Removed EIP-7907 from Fusaka.
+  * [EIP-2926](https://github.com/ethereum/EIPs/commit/8978724f70d24f1c44f3d653ff32774385f14b88): Moved to Draft status.
+  * [EIP-7825](https://github.com/ethereum/EIPs/commit/fc6c724d87ba4a7a08b473d1a8ca77ef75efa4fa): Moved to Draft status.
+
+## Onchain Stats
+
+* Fees (via [ultrasound.money](https://ultrasound.money)):
+    * Gas: 0.2 to 9.5 gwei, 1.0 gwei average; zero net issuance at 20.5 gwei
+    * 2.7k ETH net issuance this week
+* [ETHUSD](https://www.coingecko.com/en/coins/ethereum): $2507 – $2598, currently $2,582, all time high $4,878
+* [ETHBTC](https://ratiogang.com/): currently 0.0236 (Flippening at ~0.165)
+
+## Regulation/Business/Tokens
+
+* [Energy Web Chain](https://github.com/NethermindEth/nethermind/releases/tag/1.31.13) Zurich hard-fork set for block 36871000, expected on August 5, 2025.
+* [Ethereum Foundation](https://blog.ethereum.org/2025/07/10/future-of-ecodev) published "The Future of Ecosystem Development at the EF," outlining goals to maximize Ethereum adoption and infrastructure resilience.
+* [Partial history expiry](https://blog.ethereum.org/2025/07/08/partial-history-exp) announced by the Ethereum Foundation, allowing nodes to reduce disk space by 300-500 GB by removing pre-Merge block data.
+* [Ethereum Season of Internships](https://blog.ethereum.org/2025/06/12/season-of-internships) launched with 19 teams offering over 30 paid, remote internship opportunities across development, research, design, and more.
+* [Ethereum World's Fair](https://blog.ethereum.org/2025/06/10/devconnect-arg-ticket) tickets now available for the event in Buenos Aires, November 17-22, 2025.
+
+## Miscellaneous
+
+* [Shipping an L1 zkEVM #1: Realtime Proving](https://blog.ethereum.org/2025/07/10/realtime-proving) - Ethereum Foundation blog post on the first step toward migrating to ZK proofs at all levels of the stack.
+* [Berlinterop](https://blog.ethereum.org/2025/06/19/checkpoint-4) - Ethereum core devs and researchers gathered for an interop hacking week to make progress on Fusaka upgrade and gas limit increases.
+* [Ethereum Foundation Treasury Policy](https://blog.ethereum.org/2025/06/04/ef-treasury-policy) published, outlining how capital deployments should balance returns and ecosystem stewardship.
+
+## Job Postings
+
+* [Sr. Backend Engineer](https://cryptocurrencyjobs.co/engineering/across-sr-backend-engineer/) - Across, Remote
+* [Smart Contract Engineer](https://cryptocurrencyjobs.co/engineering/across-smart-contract-engineer/) - Across, Remote
+* [Status Network DevRel & Community Manager (South Korea)](https://cryptocurrencyjobs.co/engineering/logos-status-network-devrel-community-manager-south-korea/) - Logos, Remote
+* [Solidity Developer](https://cryptocurrencyjobs.co/engineering/serokell-solidity-developer/) - Serokell, Remote
+* [Node Operations Lead](https://cryptocurrencyjobs.co/engineering/nimbus-ethereum-validator-operations-lead/) - Nimbus, Remote
+* [Social Media Contractor](https://cryptocurrencyjobs.co/marketing/op-labs-social-media-contractor/) - OP Labs, Remote
+* [Ecosystem Engagement Manager](https://cryptocurrencyjobs.co/marketing/consensys-ecosystem-engagement-manager/) - Consensys, Remote - EMEA, US
+
+## Upcoming Dates of Note
+
+* Jul 17-19 - [NapulETH](https://napuleth.org/) (Naples, Italy)
+* Aug 4-6 - [The Science of Blockchain Conference 2025](https://www.sbc-conference.com/2025/) (Berkeley, USA)
+* Aug 4-16 - [ETH Enugu '25](https://ethenugu.xyz) (Enugu, Nigeria)
+* Aug 9-10 - [ETHVietnam 2025](https://eth-vietnam.com) (HCMC, Vietnam)
+* Aug 14 - [Pragma New York](https://ethglobal.com/events/pragma-newyork2025) (New York, USA)
+* Aug 15-17 - [ETHGlobal New York](https://ethglobal.com/events/newyork2025) (New York, USA)
+* Aug 19-23 - [ProdFest Jos](https://prodfest.blockfuselabs.com/) (Jos, Nigeria)
+* Aug 28-30 - [Web3 Lagos Conference](https://event.web3bridge.com) (Lagos, Nigeria)
+* Nov 17-22 - [Devconnect & Ethereum World's Fair](https://blog.ethereum.org/2025/06/10/devconnect-arg-ticket) (Buenos Aires, Argentina)
+
