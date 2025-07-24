@@ -7,7 +7,7 @@
 		<meta name="description" content="{{ description or metadata.description }}">
 		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
 
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
+		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 
 		{#-
@@ -44,7 +44,6 @@
 
 		<header>
 			<a href="/" class="home-link">
-				<img src="/img/logo.png" alt="Ethereum Logo" class="header-logo">
 				<span>{{ metadata.title }}</span>
 			</a>
 
@@ -69,11 +68,17 @@
 
 		<footer>
 			<p>
-				<em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator }}</a></em>
+				<em>Built with <a href="https://www.11ty.dev/">{{ eleventy.generator}}</a>.</em>
+				Inspired by previous <a href="https://weekinethereumnews.com/"> Week in Ethereum</a> edited by <a href="https://x.com/abcoathup"> @abcoathup </a>.
+			</p>
+			<p> 
+				Maintained by <a href="https://www.linkedin.com/in/angelaxli/"> Angela Li</a>, backed by <a href="https://namefi.io/"> Namefi</a> Grant.
+			</p>
+			<p>
+				Please email any suggestions or questions to 226angelli@gmail.com.
 			</p>
 		</footer>
 
-		<!-- This page `{{ page.url }}` was built on {% currentBuildDate %} -->
 		<script type="module" src="{% getBundleFileUrl "js" %}"></script>
 	</body>
 </html>
