@@ -296,12 +296,12 @@ header {
 	word-spacing: -0.5px;
 }
 .postlist-link {
-    display: flex; /* Changed from 'block' */
-    justify-content: space-between; /* Pushes title and date to opposite ends */
-    align-items: center; /* Vertically aligns them in the middle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1em 1.5em;
     font-size: 1.2em;
-    max-width: 80%;
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
     color: var(--text-color);
